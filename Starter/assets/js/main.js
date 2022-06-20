@@ -1,10 +1,31 @@
 // Grab elements
-
+const selectElement = selector => {
+    const element = document.querySelector(selector)
+    if (element) return element;
+    throw new Error(`Something went wrong, make sure that ${selector} exists or is typed correctly.`);
+}
 //Nav styles on scroll
+const scrollHeader = () => {
+    const headerElement = selectElement('#header');
+    if (this.scrollY >= 15) {
+        headerElement.classList.add('activated');
+    } else {
+        headerElement.classList.remove('activated');
+    }
+};
 
+window.addEventListener('scroll', scrollHeader);
 // Open menu & search pop-up
+const menuToggleIcon = selectElement('#menu-toggle-icon');
 
-// Open/Close search form popup
+const toggleMenu = () => {
+    const mobileMenu = selectElement('#menu');
+    mobileMenu.classList.toggle('activated');
+    menuToggleIcon.classList, toggle('actvated');
+};
+
+menuToggleIcon.addEventListener('click', toggleMenu);
+// Open/Close searc form popup
 
 // -- Close the search form popup on ESC keypress
 
